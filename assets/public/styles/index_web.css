@@ -1,0 +1,193 @@
+/* Doc-Wide */
+hr{
+    width: 60%;
+}
+
+/* CSS Grid */
+
+/* Main container */
+.container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.full-width{
+    grid-column: span 4;
+    grid-row: span 1;
+}
+.half-width{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.qt-width{
+    grid-column: span 1;
+    grid-row: span 1;
+}
+.ph-1{
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* Sub Container */
+.subcontainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.sub-full{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.sub-half{
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* Zoom-On-Scroll Header Image */
+.header-img-container{
+    height: 400px;;
+}
+.header-img{
+    height: inherit;
+    background-image: url(/assets/media/headers/caliBG.JPG);
+    background-size: 100%;
+    background-position: center 38%; 
+    background-repeat: no-repeat;
+}
+
+/* Sticky Info Bar */
+#info-bar-parent{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+.info-bar{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: #467046;
+    display: flex;
+    justify-content: space-between;
+}
+.info-bar-elem{
+    font-size: 16pt;
+}
+.info-bar-group{
+    display: inline-flex;
+    justify-content: space-evenly; 
+}
+.info-bar-fade{
+    margin-left: 80px;
+    margin-right: 80px;
+    color: #c4c4c4;
+}
+
+/* Section Header */
+.section-title{
+    display: flex;
+    justify-content: center;
+    background: #e0e0e0;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+.section-title-text{
+    font-size: 36pt;
+    font-weight: 700;
+}
+.section-subtitle{
+    display: flex;
+    justify-content: center;
+}
+.section-subtitle-section{
+    display: flex;
+    justify-content: space-between;
+}
+.section-subtitle-item{
+    font-size: 16pt;
+    color: #8a8a8a;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#code-section-title{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+/* Showcase Panel */
+.panel{
+    padding: 10px;
+}
+.panel-body{
+    display: flex;
+    justify-content: left;
+}
+.panel-img{
+    width: 35%;
+    height: 35%;
+    margin-left: 15px;
+}
+.panel-footer{
+    padding: 10px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    background: #e6e6e6;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Link Buttons */
+.link{
+    text-decoration: none;
+    font-size: 14pt;
+    font-weight: 400;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 6px;
+    margin-top: 18px;
+    margin-bottom: 16px;
+}
+.repo-link{
+    background: #2e9c2e;
+    color: #f0fdda;
+}
+.heroku-link{
+    background: #3c024b;
+    color: #ffffff;
+}
+
+/* Info Img */
+.info-vis{
+    height: 300px;
+}
+
+.info-vis-img{
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.info-vis-info{
+    height: 100%;
+    font-weight: 400;
+    padding: 15%;
+    background: #0b064ef8;
+    color: white;
+}
+
+#info-vis-ABB{
+    background-image: url(/assets/media/designThumbs/abbThumb.png);
+}
+#info-vis-rabi{
+    background-image: url(/assets/media/designThumbs/rlc.jpg);
+}
+#info-vis-ltc{
+    background-image: url(/assets/media/designThumbs/LTC/LTClogo.png);
+}
+#info-vis-plc{
+    background-image: url(/assets/media/designThumbs/postalCenterLogo.png);
+}
