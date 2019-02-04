@@ -1,16 +1,18 @@
 const axios = require("axios");
 const htmlparser2 = require("htmlparser2")
 const cheerio = require("cheerio");
+const db = require("../../models/index")
+const Article = db.Article
 
-class Article { 
-    constructor(params) {
-        this.title = params.title
-        this.link = params.link
-        this.meta = {
-            scraped : Date.now()
-        }
-    }
-}
+// class Article { 
+//     constructor(params) {
+//         this.title = params.title
+//         this.link = params.link
+//         this.meta = {
+//             scraped : Date.now()
+//         }
+//     }
+// }
 
 function pull( $ ) {
     results = []
@@ -18,7 +20,12 @@ function pull( $ ) {
         let params = {}
         params.title = $(element).find("a").attr("title")
         params.link = $(element).find("a").attr("href")
-        results.push(new Article(params))
+        // Article.create(params).then((ctd) => {
+        //     console.log(ctd)
+        // }).catch((err) => {
+        //     console.log(err)
+        // })
+        // results.push(params)
     });
     return results
 }
