@@ -12,6 +12,7 @@ module.exports = function () {
 
     require("./config/middleware")(app)
     require("./routes/htmlRoutes")(app)
+    require("./routes/apiRoutes")(app)
     require("./controllers/monitor")(io);
     
 
