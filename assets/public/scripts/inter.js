@@ -18,5 +18,35 @@ $(function () {
             link: $(this).attr("link")
         }
         $("#save-prompt").modal("open")
+        $("#save-article-info").html("")
+        $("#save-article-info").append($("<b>").text(toSave.title))
+        $("#save-article-info").append($("<hr>"))
+        $("#save-article-info").append($("<em>").text(toSave.link))
+        $("#save-submit").click(function () {
+            // console.log("click!")
+            try {
+                console.log("posting!")
+                $.post("/api/savearticle", toSave)
+                    .then((res) => {
+                        console.log(res)
+                        // window.location.reload()
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+
+            } catch (err){
+                throw err
+            } finally {
+                $("#save-submit").off()
+                $("#save-disregard").off()
+                $("#save-article-info").html("")
+                $("#save-prompt").modal("close")
+            }
+        })
+        $("#save-disregard").click(() => {
+            $("#save-prompt").modal("close")
+            toSave = null
+        })
     })
 })        

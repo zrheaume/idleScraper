@@ -21,7 +21,14 @@ module.exports = function (app) {
             })
     })
     app.post("/api/savearticle/", (req, res) => {
+        console.log("REQ")
         let content = req.body
-        db.Article.create(content)
+        if (content.note !== undefined && content.note.length > 0) {
+            db.Note.create({ body: content.note })
+                .then((insert) => {
+                    let noteID = insert._id
+                    console.log(noteID)
+                })
+        }
     })
 }

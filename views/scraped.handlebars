@@ -3,14 +3,17 @@
 <script src="/assets/scripts/vendor/materialize.min.js"></script>
 <div id="save-prompt" class="modal">
     <div class="modal-content">
-        <h4> Save This Article</h4>
-        <em><b> Add a note to this article for easy reference down the line</b></em>
+        <h4> Save This Article?</h4>
+        {{!-- <em><b> Add a note to this article for easy reference down the line</b></em>
         <textarea id="save-note-input" class="materialize-textarea"></textarea>
-        <label for="save-note-input">Add your note here</label>
+        <label for="save-note-input">Add your note here</label> --}}
+        <div id="save-article-info">
+
+        </div>
     </div>
     <div class="modal-footer">
         <button id="save-disregard" class="waves-effect waves-green btn-flat">Cancel</<button>
-        <button id="save-submit" class="waves-effect waves-green btn-flat">Save</<button>
+            <button id="save-submit" class="waves-effect waves-green btn-flat">Save</<button>
     </div>
 </div>
 <div class='container'>
@@ -25,7 +28,7 @@
     </div>
     <div class="row">
         <div class='col l6' id='results-section'>
-            {{#each result}}
+            {{#each result.scraped}}
             <div class="card" style="width">
                 <div class="card-content">
                     <h2 class="card-title"> {{this.title}}</h2>
@@ -34,7 +37,8 @@
                 </div>
                 <div class="card-action">
                     <a href={{this.link}}> View Article </a>
-                    <button class="trigger-saveNew" title="{{this.title}}" link="{{this.link}}"> Save Article </>
+                    <button class="trigger-saveNew waves-effect waves-green btn-flat" title="{{this.title}}" link="{{this.link}}">
+                        Save Article </button>
                 </div>
             </div>
             {{/each}}
@@ -42,9 +46,24 @@
         <div class="col l6">
             <div class='card'>
                 <div class='card-content'>
-                    <h1> Saved Articles</h1>
+                    <h4> Saved Articles</h4>
+                    <hr>
+                    {{#each result.saved}}
+                    <div class="card" style="width">
+                        <div class="card-content">
+                            <h2 class="card-title"> {{this.title}}</h2>
+                            <br>
+                            <em> Article from Seacoast Online</em>
+                        </div>
+                        <div class="card-action">
+                            <a href={{this.link}}> View Article </a>
+                            <button class="trigger-addNote waves-effect waves-green btn-flat" title="{{this.title}}"
+                                link="{{this.link}}">
+                                Add Note </button>
+                        </div>
+                    </div>
+                    {{/each}}
                 </div>
-
             </div>
         </div>
 
