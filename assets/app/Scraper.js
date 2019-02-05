@@ -4,15 +4,6 @@ const cheerio = require("cheerio");
 const db = require("../../models/index")
 const Article = db.Article
 
-// class Article { 
-//     constructor(params) {
-//         this.title = params.title
-//         this.link = params.link
-//         this.meta = {
-//             scraped : Date.now()
-//         }
-//     }
-// }
 
 function pull( $ ) {
     results = []
@@ -20,12 +11,9 @@ function pull( $ ) {
         let params = {}
         params.title = $(element).find("a").attr("title")
         params.link = $(element).find("a").attr("href")
-        // Article.create(params).then((ctd) => {
-        //     console.log(ctd)
-        // }).catch((err) => {
-        //     console.log(err)
-        // })
-        // results.push(params)
+        if (params.title !== undefined && params.title !== null) {
+            results.push(params)
+        }
     });
     return results
 }

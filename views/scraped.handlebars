@@ -1,0 +1,54 @@
+{{!-- Bootstrap --}}
+<link rel="stylesheet" href="/assets/styles/vendor/materialize.min.css">
+<script src="/assets/scripts/vendor/materialize.min.js"></script>
+<div id="save-prompt" class="modal">
+    <div class="modal-content">
+        <h4> Save This Article</h4>
+        <em><b> Add a note to this article for easy reference down the line</b></em>
+        <textarea id="save-note-input" class="materialize-textarea"></textarea>
+        <label for="save-note-input">Add your note here</label>
+    </div>
+    <div class="modal-footer">
+        <button id="save-disregard" class="waves-effect waves-green btn-flat">Cancel</<button>
+        <button id="save-submit" class="waves-effect waves-green btn-flat">Save</<button>
+    </div>
+</div>
+<div class='container'>
+    <div class='row'>
+        <div class='col s12'>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Scraper</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class='col l6' id='results-section'>
+            {{#each result}}
+            <div class="card" style="width">
+                <div class="card-content">
+                    <h2 class="card-title"> {{this.title}}</h2>
+                    <br>
+                    <em> Article from Seacoast Online</em>
+                </div>
+                <div class="card-action">
+                    <a href={{this.link}}> View Article </a>
+                    <button class="trigger-saveNew" title="{{this.title}}" link="{{this.link}}"> Save Article </>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="col l6">
+            <div class='card'>
+                <div class='card-content'>
+                    <h1> Saved Articles</h1>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script src="/assets/scripts/inter.js"></script>

@@ -7,5 +7,5 @@ module.exports = function (app) {
     app.use("/assets", express.static(`${__dirname}/../assets/public/.`))
     app.engine("handlebars", exphbs({ defaultLayout: "main" }));
     app.set("view engine", "handlebars");
-    // app.use(logger("dev"));
+    app.use(logger("dev"));
 };

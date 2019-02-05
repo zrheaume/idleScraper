@@ -1,17 +1,32 @@
 {{!-- Bootstrap --}}
 <link rel="stylesheet" href="/assets/styles/vendor/materialize.min.css">
 <script src="/assets/scripts/vendor/materialize.min.js"></script>
+
+<div id="save-prompt" class="modal">
+    <div class="modal-content">
+        <h4> Save This Article</h4>
+        <em><b> Add a note to this article for easy reference down the line</b></em>
+        <textarea id="textarea1" class="materialize-textarea"></textarea>
+        <label for="textarea1">Add your note here</label>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
+    </div>
+</div>
+
 <div class='container'>
     <div class='col s12'>
-        <h1> Idle Scraper </h1>
-        <em>The best damn scraper 'round</em>
-        <hr>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Scraper</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/scraped" id="trigger-scrapeInit"> Fetch New Articles </a></li>
+                    <li><a href="#" id="trigger-viewSaved"> View Saved Articles </a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <div class='col s12'>
-        <a class='waves-effect waves-light btn' id='scrape-init'>Scrape Fosters</a>
-    </div>
-    <div class = 'col s12' id ='results-section'>
-        <span>Results</span>
+    <div class='col s12' id='results-section'>
     </div>
 
 </div>

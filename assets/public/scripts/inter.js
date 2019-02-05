@@ -1,13 +1,22 @@
-$("#scrape-init").click(() => {
-    $.get("/api/scrape").then((res) => {
-        console.log(res)
-        $("#results-section").html("")
+// CLIENT SCRIPT <inter.js>
+// Allows to:
+// GET new articles
+// append to screen
+// set [save] event listeners
+// POST article(s) to save
+// confirm save
 
-        for (let q = 0; q < res.length; q++){
-            if (res[q].title !== null && res[q].title !== undefined) {
-                $("#results-section").append($("<h3>").text(res[q].title))
-                $("#results-section").append($("<a class='waves-effect waves-light btn'>").attr("href", res[q].link ).text("View Article"))
-            }
+
+$(function () {
+    $(".modal").modal()
+    $(".trigger-saveNew").off()
+    $(".trigger-saveNew").on("click", function() {
+        console.log($(this).attr("title"))
+        console.log($(this).attr("link"))
+        let toSave = {
+            title: $(this).attr("title"),
+            link: $(this).attr("link")
         }
+        $("#save-prompt").modal("open")
     })
-})
+})        
